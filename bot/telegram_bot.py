@@ -289,9 +289,9 @@ class ChatGPTTelegramBot:
         await wrap_with_indicator(update, context, _generate, constants.ChatAction.UPLOAD_PHOTO)
 
     async def elabs(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """
-    Converts text to speech using the ElevenLabs API.
-    """
+        """
+        Converts text to speech using the ElevenLabs API.
+        """
         if not self.config.get('enable_elevenlabs_generation', False) \
                 or not await self.check_allowed_and_within_budget(update, context):
             return
