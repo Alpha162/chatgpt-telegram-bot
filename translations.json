@@ -50,6 +50,7 @@
         "ask_chatgpt":"Ask ChatGPT",
         "loading":"Loading...",
         "function_unavailable_in_inline_mode": "This function is unavailable in inline mode"
+        "elevenlabs_description": "Transform text into natural-sounding speech with advanced AI models using ElevenLabs API"
     },
     "es": {
         "help_description":"Muestra el mensaje de ayuda",
