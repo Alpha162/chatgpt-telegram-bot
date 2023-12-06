@@ -1,8 +1,11 @@
 import datetime
 import requests
+import os
 from typing import Dict
-
 from .plugin import Plugin
+
+# Load ElevenLabs API key from environment variable
+elevenlabs_api_key = os.getenv('ELEVENLABS_API_KEY')
 
 class ElevenLabsTextToSpeech(Plugin):
     """
