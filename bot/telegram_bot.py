@@ -288,7 +288,7 @@ class ChatGPTTelegramBot:
 
         await wrap_with_indicator(update, context, _generate, constants.ChatAction.UPLOAD_PHOTO)
 
-    async def elabs(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+     async def elabs(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """
         Converts text to speech using the ElevenLabs API.
         """
@@ -304,11 +304,15 @@ class ChatGPTTelegramBot:
             )
             return
 
-        logging.info(f'New ElevenLabs speech generation request received from user {update.message.from_user.name} '
-                     f'(id: {update.message.from_user.id})')
+    logging.info(f'New ElevenLabs speech generation request received from user {update.message.from_user.name} '
+                 f'(id: {update.message.from_user.id})')
 
-    # Add your ElevenLabs API interaction code here to process elabs_query
-    # and send back the generated speech file.
+    # Here you would interact with the ElevenLabs API to process elabs_query
+    # and send back the generated speech file as a voice message.
+    # This would involve sending a request to ElevenLabs and then replying with the audio file.
+    # response = your_method_to_call_elevenlabs_api(elabs_query)
+    # if response is successful:
+    #     await context.bot.send_voice(chat_id=update.effective_chat.id, voice=response)
 
     async def tts(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """
@@ -1180,6 +1184,7 @@ class ChatGPTTelegramBot:
         application.add_handler(CommandHandler('help', self.help))
         application.add_handler(CommandHandler('image', self.image))
         application.add_handler(CommandHandler('tts', self.tts))
+        application.add_handler(CommandHandler('elabs', self.elabs))
         application.add_handler(MessageHandler(((filters.PHOTO|filters.Document.IMAGE)&filters.CaptionRegex('^/edit.*')), self.edit_image))
         application.add_handler(CommandHandler('start', self.help))
         application.add_handler(CommandHandler('stats', self.stats))
