@@ -58,6 +58,7 @@ def main():
         'vision_prompt': os.environ.get('VISION_PROMPT', 'What is in this image'),
         'vision_detail': os.environ.get('VISION_DETAIL', 'low'),
         'vision_max_tokens': int(os.environ.get('VISION_MAX_TOKENS', '300')),
+        'enable_elevenlabs_generation': os.environ.get('ELEVENLABS_API_KEY', 'false').lower() == 'true',
     }
 
     if openai_config['enable_functions'] and not functions_available:
