@@ -48,8 +48,8 @@ class ChatGPTTelegramBot:
         # If imaging is enabled, add the "image" command to the list
         if self.config.get('enable_image_generation', False):
             self.commands.append(BotCommand(command='image', description=localized_text('image_description', bot_language)))
-        #if self.config.get('enable_elevenlabs_generation', False):
-        self.commands.append(BotCommand(command='elabs', description=localized_text('elevenlabs_description', bot_language)))
+        if self.config.get('enable_elevenlabs_generation', False):
+            self.commands.append(BotCommand(command='elabs', description=localized_text('elevenlabs_description', bot_language)))
 
         if self.config.get('enable_speech_generation', False):
             self.commands.append(BotCommand(command='tts', description=localized_text('speech_description', bot_language)))
