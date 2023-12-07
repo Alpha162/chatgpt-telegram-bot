@@ -288,24 +288,24 @@ class ChatGPTTelegramBot:
 
         await wrap_with_indicator(update, context, _generate, constants.ChatAction.UPLOAD_PHOTO)
 
-         async def elabs(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+    async def elabs(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """
         Converts text to speech using the ElevenLabs API.
         """
-            if not self.config.get('enable_elevenlabs_generation', False) \
-                    or not await self.check_allowed_and_within_budget(update, context):
-                return
-    
-            elabs_query = message_text(update.message)
-            if elabs_query == '':
-                await update.effective_message.reply_text(
-                    message_thread_id=get_thread_id(update),
-                    text=localized_text('elabs_no_prompt', self.config['bot_language'])
-                )
-                return
+        if not self.config.get('enable_elevenlabs_generation', False) \
+                or not await self.check_allowed_and_within_budget(update, context):
+            return
 
-        logging.info(f'New ElevenLabs speech generation request received from user {update.message.from_user.name} '
-                     f'(id: {update.message.from_user.id})')
+        elabs_query = message_text(update.message)
+        if elabs_query == '':
+            await update.effective_message.reply_text(
+                message_thread_id=get_thread_id(update),
+                text=localized_text('elabs_no_prompt', self.config['bot_language'])
+            )
+            return
+
+    logging.info(f'New ElevenLabs speech generation request received from user {update.message.from_user.name} '
+                 f'(id: {update.message.from_user.id})')
 
     # Here you would interact with the ElevenLabs API to process elabs_query
     # and send back the generated speech file as a voice message.
