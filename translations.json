@@ -49,7 +49,8 @@
         "answer_with_chatgpt":"Answer with ChatGPT",
         "ask_chatgpt":"Ask ChatGPT",
         "loading":"Loading...",
-        "function_unavailable_in_inline_mode": "This function is unavailable in inline mode"
+        "function_unavailable_in_inline_mode": "This function is unavailable in inline mode",
+        "elevenlabs_description": "ElevenLabs offers browser-based, AI-assisted text-to-speech software capable of producing lifelike speech with synthesized vocal emotion and intonation, adjusting delivery based on language context"
     },
     "es": {
         "help_description":"Muestra el mensaje de ayuda",
