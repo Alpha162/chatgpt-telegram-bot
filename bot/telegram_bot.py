@@ -304,7 +304,7 @@ class ChatGPTTelegramBot:
             )
             return
 
-    logging.info(f'New ElevenLabs speech generation request received from user {update.message.from_user.name} '
+        logging.info(f'New ElevenLabs speech generation request received from user {update.message.from_user.name} '
                  f'(id: {update.message.from_user.id})')
 
     # Here you would interact with the ElevenLabs API to process elabs_query
